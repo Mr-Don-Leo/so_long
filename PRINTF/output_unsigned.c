@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   output_uint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/03/03 15:12:21 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/12/05 18:59:02 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/12/05 19:00:03 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "ft_printf.h"
 
-# include "../MLX/mlx.h"
-# include "../LIBFT/libft.h"
-# include "../GNL/get_next_line.h"
-# include "../PRINTF/ft_printf.h"
-# include <fcntl.h>
-
-
-/*
- * Define Images here
- * # define "image/location"
- */
-
-/*
- * Define a struct, for the game
- */
-typedef struct s_game
+int	putunbr(size_t number)
 {
-	int width;
-	int height;
-	char **map;
-	int collectibles;
+	int	printed_count;
 
-};
+	printed_count = 1;
+	if (number > 9)
+		printed_count += putunbr(number / 10);
+	ft_putchar(number % 10 + '0');
+	return (printed_count);
+}
 
+int	output_unsigned_int(va_list arguments)
+{
+	unsigned int number;
+	int printed_count;
 
-#endif //SO_LONG_H
+	number = va_arg(arguments, unsigned int);
+	printed_count = putunbr(number);
+	return (printed_count);
+}

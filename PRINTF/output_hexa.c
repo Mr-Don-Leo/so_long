@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   output_hexa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/03/03 15:12:21 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/12/05 18:27:30 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/12/05 18:27:35 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "ft_printf.h"
 
-# include "../MLX/mlx.h"
-# include "../LIBFT/libft.h"
-# include "../GNL/get_next_line.h"
-# include "../PRINTF/ft_printf.h"
-# include <fcntl.h>
-
-
-/*
- * Define Images here
- * # define "image/location"
- */
-
-/*
- * Define a struct, for the game
- */
-typedef struct s_game
+int	output_hexa(unsigned long number, char base)
 {
-	int width;
-	int height;
-	char **map;
-	int collectibles;
+	int		count;
+	char	*hex;
 
-};
-
-
-#endif //SO_LONG_H
+	count = 0;
+	if (base == 'X')
+		hex = "0123456789ABCDEF";
+	if (base == 'x')
+		hex = "0123456789abcdef";
+	if (number > 15)
+		count += output_hexa(number / 16, base);
+	count += ft_putchar(hex[number % 16]);
+	return (count);
+}

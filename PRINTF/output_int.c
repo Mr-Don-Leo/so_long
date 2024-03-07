@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   output_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/03/03 15:12:21 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/12/05 17:41:45 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/12/05 17:43:53 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "ft_printf.h"
 
-# include "../MLX/mlx.h"
-# include "../LIBFT/libft.h"
-# include "../GNL/get_next_line.h"
-# include "../PRINTF/ft_printf.h"
-# include <fcntl.h>
-
-
-/*
- * Define Images here
- * # define "image/location"
- */
-
-/*
- * Define a struct, for the game
- */
-typedef struct s_game
+int	output_int(va_list arguments)
 {
-	int width;
-	int height;
-	char **map;
-	int collectibles;
+	int printed_count;
+	int number;
 
-};
-
-
-#endif //SO_LONG_H
+	number = va_arg(arguments, int);
+	printed_count = ft_putnbr(number);
+	return (printed_count);
+}
