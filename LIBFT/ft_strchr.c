@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output_char.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 17:51:12 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/12/05 17:51:30 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/11/07 16:27:05 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/11/11 14:07:16 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	output_char(va_list arguments)
+/*
+ * function finds the first occurrence of c in the whole string.
+ */
+char	*ft_strchr(const char *s, int c)
 {
-	char character;
-
-	character = va_arg(arguments, int);
-	ft_putchar(character);
-	return (1);
+	while ((char)c != *s)
+	{
+		if (!*s)
+			return (NULL);
+		s++;
+	}
+	return ((char *)s);
 }

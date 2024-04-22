@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:56:42 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/11/13 16:56:47 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/03/28 15:05:38 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,29 @@
  * ft_strjoin allocates (with malloc(3)) and returns a new string, which is the
  * result of the concatenation of ’s1’ and ’s2’.
  */
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *conserve, char *buffer)
 {
-	char	*str;
-	size_t	index;
-	size_t	index2;
+	char	*new_string;
+	int		index;
+	int		index2;
 
-	if (!s1 || !s2)
-		return (NULL);
 	index = 0;
 	index2 = 0;
-	str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!str)
+	if (!conserve && !buffer)
 		return (NULL);
-	while (s1[index] != '\0')
+	new_string = malloc(sizeof(char) * (ft_strlen(conserve)
+				+ ft_strlen(buffer) + 1));
+	if (!new_string)
+		return (NULL);
+	while (conserve && conserve[index] != '\0')
 	{
-		str[index] = s1[index];
+		new_string[index] = conserve[index];
 		index++;
 	}
-	while (s2[index2] != '\0')
-	{
-		str[index + index2] = s2[index2];
-		index2++;
-	}
-	str[index + index2] = '\0';
-	return (str);
+	while (buffer[index2] != '\0')
+		new_string[index++] = buffer[index2++];
+	new_string[index++] = '\0';
+	if (conserve)
+		free(conserve);
+	return (new_string);
 }

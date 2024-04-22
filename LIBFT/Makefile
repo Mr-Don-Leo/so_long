@@ -5,7 +5,7 @@ NAME = libft.a
 # These are the compiler flags that will be used
 COMP_FLAGS = -Wall -Werror -Wextra
 
-SRCS = ft_split.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_strrchr.c \
+SRCS = ft_split.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_strrchr.c get_next_line.c ft_substr.c ft_strdup.c ft_strchr.c\
 
 OBJ = $(SRCS:.c=.o)
 

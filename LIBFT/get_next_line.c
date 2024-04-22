@@ -3,19 +3,72 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:58:39 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/12/18 14:13:37 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/03/28 15:14:12 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
+static char	*ft_get_line(char *conserve)
+{
+	int		index;
+	char	*line;
+
+	index = 0;
+	if (!conserve[index])
+		return (NULL);
+	while (conserve[index] != '\0' && conserve[index] != '\n')
+		index++;
+	line = malloc(sizeof(char) * (index + 1 + (conserve[index] == '\n')));
+	if (!line)
+		return (NULL);
+	index = 0;
+	while (conserve[index] != '\0' && conserve[index] != '\n')
+	{
+		line[index] = conserve[index];
+		index++;
+	}
+	if (conserve[index] == '\n')
+	{
+		line[index] = conserve[index];
+		index++;
+	}
+	line[index] = '\0';
+	return (line);
+}
 /*
- * function that reads the file and returns the line
+ * function that returns the rest of the string
  */
-char	*ft_readfile(char *conserve, int fd)
+static char	*ft_save(char *conserve)
+{
+	int		index;
+	int		index2;
+	char	*buffer;
+
+	index = 0;
+	index2 = 0;
+	while (conserve[index] != '\0' && conserve[index] != '\n')
+		index++;
+	if (!conserve[index])
+	{
+		free(conserve);
+		return (NULL);
+	}
+	buffer = malloc(sizeof(char) * ((ft_strlen(conserve) - index) + 1));
+	if (!buffer)
+		return (NULL);
+	index++;
+	while (conserve[index] != '\0')
+		buffer[index2++] = conserve[index++];
+	buffer[index2] = '\0';
+	free(conserve);
+	return (buffer);
+}
+
+static char	*ft_readfile(char *conserve, int fd)
 {
 	int		rd;
 	char	*buffer;
