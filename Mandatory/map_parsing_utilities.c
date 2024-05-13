@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_utilities.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:09:19 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/13 17:34:16 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 00:46:45 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void check_map_size(t_parsemap **map)
 		write(1, "Error\nMap is too small\n", 23);
 		(free_maps((*map)->map_main, (*map)->map_copy, *map), exit(EF));
 	}
-	if ((*map)->collumns > 25 || (*map)->rows > 17)
+	if ((*map)->collumns > 23 || (*map)->rows > 11)
 	{
 		write(1, "Error\nMap is too big\n", 21);
 		(free_maps((*map)->map_main, (*map)->map_copy, *map), exit(EF));

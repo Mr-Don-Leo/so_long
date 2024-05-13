@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/13 17:34:16 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 00:44:46 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 	Defines
 */
 
-# define TILE_SIZE			16
+# define TILE_SIZE			64
 # define WALL				'1'
 # define FLOOR				'0'
 # define COLLE				'C'
