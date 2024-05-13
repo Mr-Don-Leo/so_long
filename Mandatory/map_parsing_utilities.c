@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_utilities.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:09:19 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/13 15:40:53 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:34:16 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void check_map_elements(t_parsemap **map)
 				(*map)->x = index2;
 				(*map)->y = index;
 			}
-			if ((*map)->map_main[index][index2] == COIN)
+			if ((*map)->map_main[index][index2] == COLLE)
 				(*map)->collectibles++;
 			if ((*map)->map_main[index][index2] == EXIT)
 				(*map)->exit++;
@@ -129,7 +129,7 @@ void retrieve_map(char *path, t_parsemap **map)
 	index = 0;
 	fd = open(path, O_RDONLY);
 	count_lines(path, map);
-	(*map)->map_main = (char *)malloc(sizeof(char *) * ((*map)->rows + 1));
+	(*map)->map_main = (char **)malloc(sizeof(char *) * ((*map)->rows + 1));
 	(*map)->map_copy = malloc(sizeof(char *) * ((*map)->rows + 1));
 	if (!(*map)->map_copy || !(*map)->map_main)
 	{

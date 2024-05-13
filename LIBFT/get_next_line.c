@@ -3,115 +3,131 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:58:39 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/03/28 15:14:12 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/13 16:08:14 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_get_line(char *conserve)
+static char	*ft_get_line(char *save)
 {
-	int		index;
-	char	*line;
+	int		i;
+	char	*print;
 
-	index = 0;
-	if (!conserve[index])
+	i = 0;
+	if (!save[i])
 		return (NULL);
-	while (conserve[index] != '\0' && conserve[index] != '\n')
-		index++;
-	line = malloc(sizeof(char) * (index + 1 + (conserve[index] == '\n')));
-	if (!line)
+	while (save[i] && save[i] != '\n')
+		i++;
+	print = malloc((sizeof(char)) * (i + 1 + (save[i] == '\n')));
+	if (!print)
 		return (NULL);
-	index = 0;
-	while (conserve[index] != '\0' && conserve[index] != '\n')
+	i = 0;
+	while (save[i] != '\n' && save[i] != '\0')
 	{
-		line[index] = conserve[index];
-		index++;
+		print[i] = save[i];
+		i++;
 	}
-	if (conserve[index] == '\n')
+	if (save[i] == '\n')
 	{
-		line[index] = conserve[index];
-		index++;
+		print[i] = '\n';
+		i++;
 	}
-	line[index] = '\0';
-	return (line);
-}
-/*
- * function that returns the rest of the string
- */
-static char	*ft_save(char *conserve)
-{
-	int		index;
-	int		index2;
-	char	*buffer;
-
-	index = 0;
-	index2 = 0;
-	while (conserve[index] != '\0' && conserve[index] != '\n')
-		index++;
-	if (!conserve[index])
-	{
-		free(conserve);
-		return (NULL);
-	}
-	buffer = malloc(sizeof(char) * ((ft_strlen(conserve) - index) + 1));
-	if (!buffer)
-		return (NULL);
-	index++;
-	while (conserve[index] != '\0')
-		buffer[index2++] = conserve[index++];
-	buffer[index2] = '\0';
-	free(conserve);
-	return (buffer);
+	print[i] = '\0';
+	return (print);
 }
 
-static char	*ft_readfile(char *conserve, int fd)
+static char	*ft_save(char *save)
+{
+	int		i;
+	int		j;
+	char	*buff;
+
+	i = 0;
+	while (save[i] && save[i] != '\n')
+		i++;
+	if (!save[i] || (save[i] && !save[i + 1]))
+	{
+		free(save);
+		return (NULL);
+	}
+	buff = malloc ((sizeof(char)) * ft_strlen(save) - i + 1);
+	if (!buff)
+		return (NULL);
+	i++;
+	j = 0;
+	while (save[i])
+		buff[j++] = save[i++];
+	buff[j] = '\0';
+	free(save);
+	return (buff);
+}
+
+static char	*gnl_strjoin(char *sv, char *buff)
+{
+	char	*newsave;
+	int		i;
+	int		j;
+
+	j = 0;
+	i = 0;
+	if (!sv && !buff)
+		return (NULL);
+	newsave = malloc(sizeof(char) * ((ft_strlen(sv) + ft_strlen(buff)) + 1));
+	if (!newsave)
+		return (NULL);
+	while (sv && sv[i] != '\0')
+	{
+		newsave[i] = sv[i];
+		i++;
+	}
+	while (buff[j] != '\0')
+		newsave[i++] = buff[j++];
+	newsave[i++] = '\0';
+	if (sv)
+		free(sv);
+	return (newsave);
+}
+
+char	*ft_readfile(char *save, int fd)
 {
 	int		rd;
 	char	*buffer;
 
-	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buffer = malloc((sizeof(char)) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
 	rd = 1;
-	while (ft_strchr(conserve, '\n') == 0 && rd != 0)
+	while (rd != 0 && ft_strchr(save, '\n') == 0)
 	{
 		rd = read(fd, buffer, BUFFER_SIZE);
 		if (rd == -1)
 		{
-			if (conserve != NULL)
-				free(conserve);
+			free(save);
 			free(buffer);
 			return (NULL);
 		}
 		buffer[rd] = '\0';
-		conserve = ft_strjoin(conserve, buffer);
+		save = gnl_strjoin(save, buffer);
 	}
 	free(buffer);
-	return (conserve);
+	return (save);
 }
 
-/*
- * function read file line by line, it first checks if fd
- * is valid, if the buffer size is valid and if the buffer
- * size is not bigger than the max int value and then it
- * calls the ft_readfile function to read the file and
-
- */
 char	*get_next_line(int fd)
 {
 	char		*print;
-	static char	*conserve;
+	static char	*save[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX)
 		return (NULL);
-	conserve = ft_readfile(conserve, fd);
-	if (!conserve)
+	save[fd] = ft_readfile(save[fd], fd);
+	if (!save[fd])
 		return (NULL);
-	print = ft_get_line(conserve);
-	conserve = ft_save(conserve);
+	print = ft_get_line(save[fd]);
+	save[fd] = ft_save(save[fd]);
 	return (print);
 }

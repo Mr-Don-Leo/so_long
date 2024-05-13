@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:23:01 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/11/13 01:38:48 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/13 16:07:12 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 // increments index, at the end once the loop reaches Null it returns index
 size_t ft_strlen(const char *str)
 {
-    size_t index;
+    size_t	i;
 
-    index = 0;
-    while (str[index] != '\0')
-        index++;
-    return (index);
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 

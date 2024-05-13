@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:56:42 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/03/28 15:05:38 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/13 16:05:35 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,26 @@
  * ft_strjoin allocates (with malloc(3)) and returns a new string, which is the
  * result of the concatenation of ’s1’ and ’s2’.
  */
-char	*ft_strjoin(char *conserve, char *buffer)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*new_string;
-	int		index;
-	int		index2;
+	char	*new;
+	int		i;
+	int		j;
 
-	index = 0;
-	index2 = 0;
-	if (!conserve && !buffer)
+	if (!s1 && !s2)
 		return (NULL);
-	new_string = malloc(sizeof(char) * (ft_strlen(conserve)
-				+ ft_strlen(buffer) + 1));
-	if (!new_string)
+	i = 0;
+	j = 0;
+	new = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!new)
 		return (NULL);
-	while (conserve && conserve[index] != '\0')
+	while (s1[i])
 	{
-		new_string[index] = conserve[index];
-		index++;
+		new[i] = s1[i];
+		i++;
 	}
-	while (buffer[index2] != '\0')
-		new_string[index++] = buffer[index2++];
-	new_string[index++] = '\0';
-	if (conserve)
-		free(conserve);
-	return (new_string);
+	while (s2[j])
+		new[i++] = s2[j++];
+	new[j++] = '\0';
+	return (new);
 }

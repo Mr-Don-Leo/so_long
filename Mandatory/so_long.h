@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/11 14:59:11 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:34:16 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include "../MLX/mlx.h"
 # include "../LIBFT/libft.h"
+# include <stdio.h>
 # include <fcntl.h>
 
 /*
@@ -28,7 +29,7 @@
 # define TILE_SIZE			16
 # define WALL				'1'
 # define FLOOR				'0'
-# define COIN				'C'
+# define COLLE				'C'
 # define PLAYER				'P'
 # define EXIT				'E'
 # define EF					EXIT_FAILURE

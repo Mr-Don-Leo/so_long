@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utilities.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:28:18 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/11 15:13:32 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:34:16 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void init_map(t_parsemap **map, t_game *game)
 
 void check_character(char c, t_parsemap **map)
 {
-	if (c != WALL && c != FLOOR && c != COIN && c != PLAYER && c != EXIT)
+	if (c != WALL && c != FLOOR && c != COLLE && c != PLAYER && c != EXIT)
 	{
-		write(1, "Error\nInvalid element in the map\n", 36);
+		write(1, "Error\nInvalid element in the map\n", 34);
 		(free_maps((*map)->map_main, (*map)->map_copy, *map), exit(EF));
 	}
 }

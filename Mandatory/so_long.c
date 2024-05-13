@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:32:57 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/13 15:39:16 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:30:37 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ int main(int argc, char **argv)
 	game.map = malloc(sizeof(t_parsemap));
 	if (argc != 2)
 		(write(1, "Error\nInvalid number of arguments\n", 35), exit(EF));
+	// printf("%s\n", argv[1]);
 	map_parsing(argv[1], &game);
 	game.mlx = mlx_init();
-	game.window = mlx_new_window(game.mlx, game.map->collumns * 16,
-		game.map->rows * 16, "so_long");
+	game.window = mlx_new_window(game.mlx, game.map->collumns * TILE_SIZE,
+			game.map->rows * TILE_SIZE, "so_long");
 	rendering(&game);
+	printf("Render Complete??????");
+	mlx_loop(game.mlx);
 	return (0);
 }
