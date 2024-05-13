@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:22:11 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/03/28 15:17:00 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/08 00:29:50 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,17 @@
 #  define BUFFER_SIZE 1024
 # endif
 
-size_t				ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
 char	*ft_strrchr(char *concerve, int c);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-void				ft_putstr_fd(char *s, int fd);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_putstr_fd(char *s, int fd);
 char	*ft_strjoin(char *conserve, char *buffer);
-char				**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *s);
-char *ft_substr(char const *s, unsigned int start, size_t len);
+char 	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
 char	*get_next_line(int fd);
+char 	*ft_strtrim(char const *s1, char const *set);
+
 
 #endif
