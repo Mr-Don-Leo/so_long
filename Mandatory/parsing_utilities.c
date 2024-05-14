@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utilities.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:28:18 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/13 17:34:16 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:19:02 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void path_validation(char *path, t_parsemap **map)
 	close (fd);
 }
 
-void init_map(t_parsemap **map, t_game *game)
+void init_map(t_parsemap **map)
 {
 	(*map)->player = 0;
 	(*map)->collectibles = 0;
@@ -37,8 +37,6 @@ void init_map(t_parsemap **map, t_game *game)
 	(*map)->empty_line = -1;
 	(*map)->temp_collectibles = -1;
 	(*map)->temp_exit = -1;
-	game->moves = 0;
-	game->controls = 1;	
 }
 
 void check_character(char c, t_parsemap **map)

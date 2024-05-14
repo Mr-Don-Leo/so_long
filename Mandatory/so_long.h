@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 00:44:46 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:19:13 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include "../MLX/mlx.h"
 # include "../LIBFT/libft.h"
+# include "../PRINTF/ft_printf.h"
 # include <stdio.h>
 # include <fcntl.h>
 
@@ -38,6 +39,18 @@
 /*
 	Structs
 */
+typedef enum keys
+{
+	UP = 126,
+	DOWN = 125,
+	RIGHT = 124,
+	LEFT = 123,
+	W = 13,
+	A= 0,
+	S = 1,
+	D = 2,
+	ESC = 53
+}	t_keys;
 
 typedef struct s_parsemap
 {
@@ -72,13 +85,14 @@ typedef struct s_game
 	int			moves;
 	int			controls;
 	int			exitcollected;
+	int			direction;
 	t_parsemap	*map;
 }	t_game;
 
 /*
 	Func Prototypes
 */
-void	init_map(t_parsemap **map, t_game *game);
+void	init_map(t_parsemap **map);
 void 	image_check(char **set);
 char 	**set_images();
 void	path_validation(char *path, t_parsemap **map);
@@ -93,5 +107,7 @@ void	check_element_amount(t_parsemap **map);
 void	path_finder(t_parsemap **map, char **copy, int x, int y);
 void	check_path_finder_result(t_parsemap **map);
 void	rendering(t_game *game);
+int		key_handler(int keycode, t_game *game);
+void	game_exit(t_game *game);
 
-#endif //SO_LONG_H
+#endif

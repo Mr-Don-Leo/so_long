@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:32:57 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/13 17:30:37 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:21:29 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 void map_parsing(char *path, t_game *game)
 {
-	init_map(&game->map, game);
+	init_map(&game->map);
 	path_validation(path, &game->map);
 	retrieve_map(path, &game->map);
 	check_map_size(&game->map);
@@ -41,6 +41,8 @@ int main(int argc, char **argv)
 {
 	t_game game;
 
+	game.moves = 0;
+	game.controls = 1;	
 	image_check(set_images());
 	game.map = malloc(sizeof(t_parsemap));
 	if (argc != 2)
@@ -51,7 +53,7 @@ int main(int argc, char **argv)
 	game.window = mlx_new_window(game.mlx, game.map->collumns * TILE_SIZE,
 			game.map->rows * TILE_SIZE, "so_long");
 	rendering(&game);
-	printf("Render Complete??????");
+	mlx_hook(game.window, 2, 0, key_handler, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }

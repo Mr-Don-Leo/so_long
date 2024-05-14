@@ -4,12 +4,13 @@ CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
 SRCS = Mandatory/so_long.c Mandatory/rendering.c Mandatory/path_finder.c \
 		Mandatory/parsing_utilities.c Mandatory/map_parsing_utilities.c \
-		Mandatory/image_check.c Mandatory/extra_utils.c \
+		Mandatory/image_check.c Mandatory/extra_utils.c Mandatory/game_process.c Mandatory/game_over.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
 LIBFT = libft/libft.a
 MLX	 = mlx/libmlx.a
+PRINTF = PRINTF/libftprintf.a
 
 
 MLXFLAG = -L mlx -lmlx -framework OpenGL -framework AppKit
@@ -22,8 +23,11 @@ $(LIBFT):
 $(MLX):
 	@$(MAKE) -C mlx
 
-$(NAME)	: $(OBJS) $(LIBFT)  $(MLX) 
-	@$(CC) $(CFLAGS) $(OBJS) $(MLXFLAG) -o $@ $(LIBFT) $(MLX)
+$(PRINTF):
+	@$(MAKE) -C printf
+
+$(NAME)	: $(OBJS) $(LIBFT)  $(MLX) $(PRINTF)
+	@$(CC) $(CFLAGS) $(OBJS) $(MLXFLAG) -o $@ $(LIBFT) $(MLX) $(PRINTF)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -35,6 +39,7 @@ clean :
 fclean: clean
 	@$(MAKE) -C libft fclean
 	@$(MAKE) -C mlx clean
+	@$(MAKE) -C printf fclean
 	@rm -f $(NAME)
 
 re:	fclean all
