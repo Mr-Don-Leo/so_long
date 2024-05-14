@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:27:14 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 17:53:53 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:01:17 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void free_sprites(t_game *game)
 	mlx_destroy_image(game->mlx, game->tiles[0]);
 	mlx_destroy_image(game->mlx, game->tiles[1]);
 	mlx_destroy_image(game->mlx, game->player[0]);
-	mlx_destroy_image(game->mlx, game->player[1]);
 	mlx_destroy_image(game->mlx, game->collectible[0]);
 	mlx_destroy_image(game->mlx, game->exit[0]);
 }

@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:28:56 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 18:20:55 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:01:26 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void frame_update(t_game *game, int upd_x, int upd_y)
 	mlx_put_image_to_window(game->mlx, game->window,
 		game->tiles[1], game->map->x * TILE_SIZE, game->map->y * TILE_SIZE);
 	mlx_put_image_to_window(game->mlx, game->window,
-		game->player[1], upd_x * TILE_SIZE, upd_y * TILE_SIZE);
+		game->player[0], upd_x * TILE_SIZE, upd_y * TILE_SIZE);
 }
 
 void move_player(t_game *game, int upd_x, int upd_y)
@@ -30,7 +30,6 @@ void move_player(t_game *game, int upd_x, int upd_y)
 	if (game->map->map_main[upd_y][upd_x] == WALL)
 		return ;
 	game->moves = game->moves + 1;
-	printf("Total Moves: %d\n", game->moves);
 	ft_printf("Total Moves: %d\n", game->moves);
 	if (game->map->map_main[upd_y][upd_x] == COLLE)
 		game->map->collectibles--;
