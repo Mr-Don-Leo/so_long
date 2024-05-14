@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 12:37:59 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 19:00:33 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:08:49 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void init_elements(t_game *game)
 			"./Mandatory/textures/collectible.xpm", &game->tile, &game->tile);
 	game->player[0] = mlx_xpm_file_to_image(game->mlx,
 			"./Mandatory/textures/right.xpm", &game->tile, &game->tile);
+	game->player[1] = mlx_xpm_file_to_image(game->mlx,
+			"./Mandatory/textures/left.xpm", &game->tile, &game->tile);
 	game->exit[0] = mlx_xpm_file_to_image(game->mlx,
 			"./Mandatory/textures/exit.xpm", &game->tile, &game->tile);
 }
@@ -83,7 +85,7 @@ void render_elements(t_game *game)
 		while (index2 < game->map->collumns - 1)
 		{
 			if (game->map->map_main[index][index2] == PLAYER)
-				mlx_put_image_to_window(game->mlx, game->window, game->player[0],
+				mlx_put_image_to_window(game->mlx, game->window, game->player[1],
 					index2 * TILE_SIZE, index * TILE_SIZE);
 			if (game->map->map_main[index][index2] == COLLE)
 				mlx_put_image_to_window(game->mlx, game->window, game->collectible[0],

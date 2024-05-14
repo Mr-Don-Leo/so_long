@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:32:57 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 18:52:36 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:41:43 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 	t_game game;
 
 	game.moves = 0;
-	game.controls = 1;	
+	game.direction = 0;
 	image_check(set_images());
 	game.map = malloc(sizeof(t_parsemap));
 	if (argc != 2)

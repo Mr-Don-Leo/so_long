@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 19:03:39 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:41:52 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,11 @@ typedef struct s_game
 	void		*window;
 	void		*tiles[2];
 	void		*collectible[1];
-	void		*player[1];
+	void		*player[2];
 	int			exitflag;
 	void		*exit[1];
 	int			tile;
 	int			moves;
-	int			controls;
 	int			direction;
 	t_parsemap	*map;
 }	t_game;
