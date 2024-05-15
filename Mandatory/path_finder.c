@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path_finder.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 04:10:24 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/13 17:34:16 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:30:35 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void path_finder(t_parsemap **map, char **copy, int x, int y)
 		(*map)->temp_exit--;
 		(*map)->exit_x = x;
 		(*map)->exit_y = y;
+		copy[y][x] = WALL;
+		return ;
 	}
 	if (copy[y][x] == COLLE)
 		(*map)->temp_collectibles--;

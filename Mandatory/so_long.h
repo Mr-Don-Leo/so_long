@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 19:41:52 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:29:04 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ void	path_finder(t_parsemap **map, char **copy, int x, int y);
 void	check_path_finder_result(t_parsemap **map);
 void	rendering(t_game *game);
 int		key_handler(int keycode, t_game *game);
-void	game_exit(t_game *game);
+int		game_exit(t_game *game);
 
 #endif
