@@ -6,28 +6,18 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:32:57 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/15 20:23:46 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:38:19 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-/*
- key codes:
- 53: esc;
- 123: left arrow;
- 124: right arrow;
- 125: down arrow;
- 126: up arrow;
- 13: w;
- 0: a;
- 1: s;
- 2: d;
-*/
 
-int	addtext(t_game *game) 
+int	addtext(t_game *game)
 {
-	char *moves;
-	mlx_put_image_to_window(game->mlx, game->window, game->tiles[0], TILE_SIZE, 0);
+	char	*moves;
+
+	mlx_put_image_to_window(game->mlx, game->window,
+		game->tiles[0], TILE_SIZE, 0);
 	mlx_put_image_to_window(game->mlx, game->window, game->tiles[0], 0, 0);
 	mlx_string_put(game->mlx, game->window, 10, 10, 0x00FFFFFF, "Moves: ");
 	moves = ft_itoa(game->moves);
@@ -36,7 +26,7 @@ int	addtext(t_game *game)
 	return (0);
 }
 
-void map_parsing(char *path, t_game *game)
+void	map_parsing(char *path, t_game *game)
 {
 	init_map(&game->map);
 	path_validation(path, &game->map);
@@ -49,9 +39,10 @@ void map_parsing(char *path, t_game *game)
 	check_path_finder_result(&game->map);
 	free_maps(NULL, game->map->map_copy, NULL);
 }
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-	t_game game;
+	t_game	game;
 
 	game.moves = 0;
 	game.direction = 0;

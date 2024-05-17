@@ -6,28 +6,27 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:28:18 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 19:08:37 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:39:50 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#include <stdio.h>
-void path_validation(char *path, t_parsemap **map)
+void	path_validation(char *path, t_parsemap **map)
 {
-	int fd;
+	int	fd;
 
 	if (!path)
-		(write(1, "Error\nInvalid path\n", 19), free(*map),exit(EF));
+		(write(1, "Error\nInvalid path\n", 19), free(*map), exit(EF));
 	if (ft_strncmp(&path[ft_strlen(path) - 4], ".ber", 4) != 0)
-		(write(1, "Error\nInvalid file extension\n", 30), free(*map),exit(EF));
+		(write(1, "Error\nInvalid file extension\n", 30), free(*map), exit(EF));
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		(write(1, "Error\nFile not found\n", 22), free(*map),exit(EF));
+		(write(1, "Error\nFile not found\n", 22), free(*map), exit(EF));
 	close (fd);
 }
 
-void init_map(t_parsemap **map)
+void	init_map(t_parsemap **map)
 {
 	(*map)->player = 0;
 	(*map)->collectibles = 0;
@@ -39,7 +38,7 @@ void init_map(t_parsemap **map)
 	(*map)->temp_exit = -1;
 }
 
-void check_character(char c, t_parsemap **map)
+void	check_character(char c, t_parsemap **map)
 {
 	if (c != WALL && c != FLOOR && c != COLLE && c != PLAYER && c != EXIT)
 	{
@@ -48,11 +47,11 @@ void check_character(char c, t_parsemap **map)
 	}
 }
 
-int check_top_bottom(char *row, char target)
+int	check_top_bottom(char *row, char target)
 {
-	int index;
-	int length; 
-	
+	int	index;
+	int	length;
+
 	index = 0;
 	length = ft_strlen(row);
 	while (index < length)

@@ -6,13 +6,13 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:27:14 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/15 12:24:59 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:24:15 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void free_sprites(t_game *game)
+void	free_sprites(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->tiles[0]);
 	mlx_destroy_image(game->mlx, game->tiles[1]);

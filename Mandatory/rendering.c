@@ -6,13 +6,13 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 12:37:59 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/15 16:17:13 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:37:17 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void init_elements(t_game *game)
+void	init_elements(t_game *game)
 {
 	game->tile = TILE_SIZE;
 	game->tiles[0] = mlx_xpm_file_to_image(game->mlx,
@@ -29,10 +29,10 @@ void init_elements(t_game *game)
 			"./Mandatory/textures/exit.xpm", &game->tile, &game->tile);
 }
 
-void render_edges(t_game *game)
+void	render_edges(t_game *game)
 {
-	int index;
-	int index2;
+	int	index;
+	int	index2;
 
 	index = -1;
 	index2 = -1;
@@ -49,10 +49,10 @@ void render_edges(t_game *game)
 	}
 }
 
-void render_map(t_game *game)
+void	render_map(t_game *game)
 {
-	int index;
-	int index2;
+	int	index;
+	int	index2;
 
 	index = 0;
 	index2 = 0;
@@ -73,10 +73,10 @@ void render_map(t_game *game)
 	}
 }
 
-void render_elements(t_game *game)
+void	render_elements(t_game *game)
 {
-	int index;
-	int index2;
+	int	index;
+	int	index2;
 
 	index = 0;
 	index2 = 0;
@@ -85,11 +85,12 @@ void render_elements(t_game *game)
 		while (index2 < game->map->collumns - 1)
 		{
 			if (game->map->map_main[index][index2] == PLAYER)
-				mlx_put_image_to_window(game->mlx, game->window, game->player[0],
-					index2 * TILE_SIZE, index * TILE_SIZE);
+				mlx_put_image_to_window(game->mlx, game->window,
+					game->player[0], index2 * TILE_SIZE, index * TILE_SIZE);
 			if (game->map->map_main[index][index2] == COLLE)
-				mlx_put_image_to_window(game->mlx, game->window, game->collectible[0],
-					index2 * TILE_SIZE, index * TILE_SIZE);
+				mlx_put_image_to_window(game->mlx, game->window,
+					game->collectible[0], index2 * TILE_SIZE,
+					index * TILE_SIZE);
 			if (game->map->map_main[index][index2] == EXIT)
 				mlx_put_image_to_window(game->mlx, game->window, game->exit[0],
 					index2 * TILE_SIZE, index * TILE_SIZE);
@@ -100,7 +101,7 @@ void render_elements(t_game *game)
 	}
 }
 
-void  rendering(t_game *game)
+void	rendering(t_game *game)
 {
 	init_elements(game);
 	render_edges(game);

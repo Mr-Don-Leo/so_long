@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   extra_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 23:52:37 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/13 17:12:32 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:42:00 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void free_maps(char **main_map, char **map_copy, t_parsemap *map)
+void	free_maps(char **main_map, char **map_copy, t_parsemap *map)
 {
-	int index;
+	int	index;
 
-	index = -1; 
+	index = -1;
 	if (main_map)
 	{
 		while (main_map[++index])
@@ -34,7 +34,7 @@ void free_maps(char **main_map, char **map_copy, t_parsemap *map)
 		free(map);
 }
 
-void check_element_amount(t_parsemap **map)
+void	check_element_amount(t_parsemap **map)
 {
 	if ((*map)->player != 1 || (*map)->collectibles < 1 || (*map)->exit != 1)
 	{
@@ -43,7 +43,7 @@ void check_element_amount(t_parsemap **map)
 	}
 }
 
-void check_path_finder_result(t_parsemap **map)
+void	check_path_finder_result(t_parsemap **map)
 {
 	if ((*map)->temp_collectibles != 0 || (*map)->temp_exit != 0)
 	{

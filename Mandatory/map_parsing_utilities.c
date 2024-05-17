@@ -6,16 +6,16 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:09:19 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/14 00:46:45 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:41:18 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void count_lines(char *path, t_parsemap **map)
+void	count_lines(char *path, t_parsemap **map)
 {
-	int fd;
-	int index;
+	int	fd;
+	int	index;
 
 	index = 0;
 	fd = open(path, O_RDONLY);
@@ -41,11 +41,11 @@ void count_lines(char *path, t_parsemap **map)
 	close (fd);
 }
 
-void check_map_size(t_parsemap **map)
+void	check_map_size(t_parsemap **map)
 {
-	int index; 
-	int temporary;
-	
+	int	index;
+	int	temporary;
+
 	index = 1;
 	(*map)->collumns = ft_strlen((*map)->map_main[0]);
 	if ((*map)->collumns < 3 || (*map)->rows < 3)
@@ -69,9 +69,9 @@ void check_map_size(t_parsemap **map)
 	}
 }
 
-void check_map_borders(t_parsemap **map)
+void	check_map_borders(t_parsemap **map)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	if (check_top_bottom((*map)->map_main[0], WALL) == 0
@@ -92,11 +92,11 @@ void check_map_borders(t_parsemap **map)
 	}
 }
 
-void check_map_elements(t_parsemap **map)
+void	check_map_elements(t_parsemap **map)
 {
-	int index;
-	int index2;
-	
+	int	index;
+	int	index2;
+
 	index = 0;
 	index2 = 0;
 	while ((*map)->map_main[index])
@@ -121,10 +121,10 @@ void check_map_elements(t_parsemap **map)
 	}
 }
 
-void retrieve_map(char *path, t_parsemap **map)
+void	retrieve_map(char *path, t_parsemap **map)
 {
-	int index;
-	int fd;
+	int	index;
+	int	fd;
 
 	index = 0;
 	fd = open(path, O_RDONLY);
