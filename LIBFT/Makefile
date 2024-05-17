@@ -12,21 +12,21 @@ OBJ = $(SRCS:.c=.o)
 # Rule checks if the file exists in OBJ, then creates them if they dont exist
 # $@ is the target in our case $(NAME)
 $(NAME) : $(OBJ)
-	ar -rcs $@ $(OBJ)
+	@ar -rcs $@ $(OBJ)
 
 # Pattern rule that says how to create a .o file from a .c file.
 # $? is the dependency list. (the .c files)
 %.o: %.c
-	$(CC) -c $(COMP_FLAGS) $?
+	@$(CC) -c $(COMP_FLAGS) $?
 
 re: fclean all
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 .PHONY:			all clean fclean re

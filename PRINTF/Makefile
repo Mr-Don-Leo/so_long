@@ -11,19 +11,19 @@ SRCS = ft_printf.c print_utils.c output_char.c output_str.c \
 OBJ = $(SRCS:.c=.o)
 
 $(NAME) : $(OBJ)
-	ar -rcs $@ $(OBJ)
+	@ar -rcs $@ $(OBJ)
 
 %.o: %.c
-	$(CC) -c $(COMP_FLAGS) $?
+	@$(CC) -c $(COMP_FLAGS) $?
 
 re: fclean all
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 .PHONY:			all clean fclean re
