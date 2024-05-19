@@ -6,11 +6,11 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:09:19 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/17 15:41:18 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 19:44:55 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	count_lines(char *path, t_parsemap **map)
 {

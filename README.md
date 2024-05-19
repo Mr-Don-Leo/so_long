@@ -27,7 +27,6 @@
 4. **Bonus Features (Optional)**
     - Add enemies or obstacles
     - Implement animations
-    - Enhance graphics and sound effects
 
 ## 3. Task Breakdown
 - **Map Parsing and Rendering**:

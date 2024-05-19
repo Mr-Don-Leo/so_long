@@ -6,11 +6,11 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:32:57 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/17 15:38:19 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 19:44:39 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	addtext(t_game *game)
 {

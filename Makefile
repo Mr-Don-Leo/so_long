@@ -3,6 +3,13 @@ BONUS = so_long_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
+RED=\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[0;33m
+PURPLE=\033[0;35m
+ORANGE=\033[38;5;208m
+NC=\033[0m
+
 SRCS = Mandatory/so_long.c Mandatory/rendering.c Mandatory/path_finder.c \
 		Mandatory/parsing_utilities.c Mandatory/map_parsing_utilities.c \
 		Mandatory/image_check.c Mandatory/extra_utils.c Mandatory/game_process.c Mandatory/game_over.c 
@@ -23,61 +30,66 @@ MLXFLAG = -L mlx -lmlx -framework OpenGL -framework AppKit
 all: $(NAME)
 
 $(LIBFT):
-	@echo "Compiling libft..."
+	@echo "$(YELLOW)Compiling libft...$(NC)"
 	@$(MAKE) -C libft
-	@echo "Finished compiling libft."
+	@echo "$(GREEN)Finished compiling libft.$(NC)"
 	@echo
 
 $(MLX):
-	@echo "Compiling mlx..."
+	@echo "$(YELLOW)Compiling mlx...$(NC)"
 	@$(MAKE) -C mlx
-	@echo "Finished compiling mlx."
+	@echo "$(GREEN)Finished compiling mlx.$(NC)"
 	@echo
 
 $(PRINTF):
-	@echo "Compiling printf..."
+	@echo "$(YELLOW)Compiling printf...$(NC)"
 	@$(MAKE) -C printf
-	@echo "Finished compiling printf."
+	@echo "$(GREEN)Finished compiling printf.$(NC)"
 	@echo
 
 $(NAME): $(OBJS) $(LIBFT) $(MLX) $(PRINTF)
-	@echo "Compiling $(NAME)..."
+	@echo "$(YELLOW)Compiling $(NAME)...$(NC)"
 	@$(CC) $(CFLAGS) $(OBJS) $(MLXFLAG) -o $@ $(LIBFT) $(MLX) $(PRINTF)
-	@echo "Finished compiling $(NAME)."
+	@echo "$(GREEN)Finished compiling $(NAME).$(NC)"
 	@echo
 
 %.o: %.c
-	@echo "Compiling $<..."
+	@echo "$(YELLOW)Compiling $<...$(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Finished compiling $<."
+	@echo "$(GREEN)Finished compiling $<.$(NC)"
 	@echo
 
 bonus: $(BONUS)
 
 $(BONUS): $(BONUS_OBJS) $(LIBFT) $(MLX) $(PRINTF)
-	@echo "Compiling $(BONUS)..."
+	@echo "$(YELLOW)Compiling $(BONUS)...$(NC)"
 	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(MLXFLAG) -o $@ $(LIBFT) $(MLX) $(PRINTF)
-	@echo "Finished compiling $(BONUS)."
+	@echo "$(GREEN)Finished compiling $(BONUS).$(NC)"
 	@echo
 
 clean:
-	@echo "Cleaning up object files..."
+	@echo "$(ORANGE)Cleaning up object files...$(NC)"
 	@$(MAKE) -C libft clean
 	@rm -f $(OBJS)
 	@rm -f $(BONUS_OBJS)
-	@echo "Cleanup complete."
+	@echo "$(ORANGE)Cleanup complete.$(NC)"
 	@echo
 
 fclean: clean
-	@echo "Performing full clean..."
+	@echo "$(RED)Performing full clean...$(NC)"
 	@$(MAKE) -C libft fclean
 	@$(MAKE) -C mlx clean
 	@$(MAKE) -C printf fclean
 	@rm -f $(NAME)
 	@rm -f $(BONUS)
-	@echo "Full clean complete."
+	@echo "$(RED)Full clean complete.$(NC)"
 	@echo
 
 re: fclean all
+
+norm:
+	@echo "$(PURPLE)Checking norminette...$(NC)"
+	@echo
+	@python3 -m norminette ./PRINTF ./LIBFT ./Mandatory ./Bonus
 
 .PHONY: all clean fclean re bonus

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:56:06 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/12/05 17:57:15 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:53:02 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	output_str(va_list arguments)
 {
-	int printed_count;
-	char *string;
+	int		printed_count;
+	char	*string;
 
 	string = va_arg(arguments, char *);
 	printed_count = 0;

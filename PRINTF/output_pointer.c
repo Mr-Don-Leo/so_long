@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output_pointer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:46:32 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/12/05 18:46:35 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:54:06 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

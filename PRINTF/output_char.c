@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:51:12 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/12/05 17:51:30 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:53:33 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	output_char(va_list arguments)
 {
-	char character;
+	char	character;
 
 	character = va_arg(arguments, int);
 	ft_putchar(character);

@@ -6,11 +6,11 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 23:52:37 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/17 15:42:00 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 19:45:06 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	free_maps(char **main_map, char **map_copy, t_parsemap *map)
 {

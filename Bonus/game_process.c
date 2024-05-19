@@ -6,11 +6,11 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:28:56 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/17 15:28:31 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 19:45:01 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	frame_update(t_game *game, int upd_x, int upd_y, int dir)
 {

@@ -6,11 +6,11 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:27:14 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/17 15:24:15 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/17 19:45:04 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	free_sprites(t_game *game)
 {

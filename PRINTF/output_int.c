@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:41:45 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/12/05 17:43:53 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:54:18 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	output_int(va_list arguments)
 {
-	int printed_count;
-	int number;
+	int	printed_count;
+	int	number;
 
 	number = va_arg(arguments, int);
 	printed_count = ft_putnbr(number);

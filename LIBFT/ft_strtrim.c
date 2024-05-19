@@ -6,13 +6,13 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 00:28:42 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/08 00:29:21 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:59:23 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	index;
 
