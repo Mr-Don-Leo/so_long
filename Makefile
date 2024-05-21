@@ -1,7 +1,7 @@
 NAME = so_long
 BONUS = so_long_bonus
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
 
 RED=\033[0;31m
 GREEN=\033[0;32m
@@ -21,8 +21,8 @@ BONUS_SRCS = Bonus/so_long.c Bonus/rendering.c Bonus/path_finder.c \
 OBJS	=	$(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-LIBFT = libft/libft.a
-MLX	 = mlx/libmlx.a
+LIBFT = LIBFT/libft.a
+MLX	 = MLX/libmlx.a
 PRINTF = PRINTF/libftprintf.a
 
 MLXFLAG = -L mlx -lmlx -framework OpenGL -framework AppKit
@@ -92,4 +92,7 @@ norm:
 	@echo
 	@python3 -m norminette ./PRINTF ./LIBFT ./Mandatory ./Bonus
 
-.PHONY: all clean fclean re bonus
+run:
+	./$(NAME) ./Maps/map2.ber
+
+.PHONY: all clean fclean re bonus norm run
