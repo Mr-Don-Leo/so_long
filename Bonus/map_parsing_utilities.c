@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:09:19 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/17 19:44:55 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/23 01:27:10 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	count_lines(char *path, t_parsemap **map)
 			(*map)->empty_line = 1;
 		if ((*map)->line[0] != '\n' && (*map)->empty_line == 1)
 		{
-			write(2, "Error:\nEmpty line found in the map.\n", 29);
+			write(2, "Error:\nEmpty line found in the map.\n", 37);
 			(free((*map)->line), (void)close(fd), free (*map), exit(EF));
 		}
 		else if ((*map)->line[0] != '\n')

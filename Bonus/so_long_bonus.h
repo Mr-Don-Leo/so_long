@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:11:53 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/19 13:59:05 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/23 04:58:59 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,7 @@ typedef struct s_game
 	Func Prototypes
 */
 void	init_map(t_parsemap **map);
-void	image_check(char **set);
-char	**set_images(void);
+void	image_check(void);
 void	path_validation(char *path, t_parsemap **map);
 void	retrieve_map(char *path, t_parsemap **map);
 void	free_maps(char **main_map, char **map_copy, t_parsemap *map);

@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:32:57 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/05/17 19:44:39 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/05/23 04:59:04 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 
 	game.moves = 0;
 	game.direction = 0;
-	image_check(set_images());
+	image_check();
 	game.map = malloc(sizeof(t_parsemap));
 	if (argc != 2)
 		(write(1, "Error\nInvalid number of arguments\n", 35), exit(EF));
